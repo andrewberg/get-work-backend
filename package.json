@@ -1,5 +1,3 @@
-// package.json
-
 {
 	"name" : "node-api",
 	"main" : "server.js",
