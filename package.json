@@ -1,10 +1,32 @@
 {
-	"name" : "node-api",
-	"main" : "server.js",
-	"dependencies" : {
-		"express":  "~4.0.0",
-		"mongoose": "~3.6.13",
-		"body-parser": "~1.0.1",
-		"mongodb": "2.2.16"
-	}
+  "name": "get-work-backend",
+  "version": "1.0.0",
+  "description": "Backend in NodeJS and Express using MongoDB for GetWork",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongodb": "^2.2.16"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewberg/get-work-backend.git"
+  },
+  "keywords": [
+    "get",
+    "work",
+    "git",
+    "hub"
+  ],
+  "author": "Andrew Berg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrewberg/get-work-backend/issues"
+  },
+  "homepage": "https://github.com/andrewberg/get-work-backend#readme"
 }
