@@ -25,13 +25,7 @@ var JobPosting = require('./models/jobposting');
 app.listen(3000);
 console.log("Server started.");
 
-var conn = mongoose.createConnection('mongodb://localhost/getwork');
-
-conn.on('open', function () {
-    conn.db.listCollections().toArray(function (err, names) {
-        console.log(err, names);
-    });
-});
+var conn = mongoose.connect('mongodb://localhost/getwork');
 
 router.route('/joboffers').post(function(req, res) {
 	var job = new JobPosting();
