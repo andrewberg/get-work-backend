@@ -35,7 +35,7 @@ router.route('/joboffers').post(function(req, res) {
 	/* sets the job informationf or the object from post data */
 	job.JobTitle = req.body.title;
 	job.JobDescription = req.body.desc;
-	job.geo = [coords[0], coords[1]];
+	job.loc = [coords[0], coords[1]];
 	job.JobPostDate = Date();
 	job.JobFilled = false;
 	job.JobExpireDate = new Date(expiretime);
