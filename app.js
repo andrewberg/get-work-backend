@@ -33,6 +33,7 @@ router.route('/joboffers').post(function(req, res) {
 	var coords = req.body.coords.split(',').map(Number);
 	var expiretime = req.body.expiretime;
 	
+	/* sets the job informationf or the object from post data */
 	job.JobTitle = req.body.title;
 	job.JobDescription = req.body.desc;
 	job.geo = [coords[0], coords[1]];
@@ -46,11 +47,11 @@ router.route('/joboffers').post(function(req, res) {
 		if (err)
 			res.send(err);
 
-		res.json({message: "Job created!"});
+		res.json({message: "Job created!"}); // job save success
 	});
 
 })
-.get(function(req, res) {
+.get(function(req, res) { // dump all the jobs
 	JobPosting.find(function(err, jobs) {
 		if (err)
 			res.send(err);
@@ -58,13 +59,12 @@ router.route('/joboffers').post(function(req, res) {
 	});
 });
 
-router.route('/getoffers').post(function(req, res) {
+router.route('/getoffers').post(function(req, res) { // post offer
 	var job = new JobPosting();
 	var distance = req.body.distance;
 	var coords = req.body.coords.split(',').map(Number);
 
-
-	JobPosting.find({
+	JobPosting.find({ // find the job offers based on curloc and 
 		loc: {
 			$near: {
 				$geometry: {
@@ -77,6 +77,7 @@ router.route('/getoffers').post(function(req, res) {
 
 	}).limit(10).exec(function(err, jobs) {
 		if (err) {
+			console.log(err);
 			return res.json(500, err);
 		}
 		res.json(jobs);
