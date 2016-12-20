@@ -26,7 +26,6 @@ app.listen(3000);
 console.log("Server started.");
 
 mongoose.connect('mongodb://localhost/getwork');
-//mongoose.connection.db.ensureIndex({ 'loc': '2dsphere'});
 
 router.route('/joboffers').post(function(req, res) {
 	var job = new JobPosting();

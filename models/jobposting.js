@@ -9,7 +9,7 @@ var JobPostingSchema = new Schema({
 	JobPay: String,
 	JobBossID: Number,
 	JobFilled: Boolean,
-	loc: { type: [Number], index: '2dsphere'}
+	loc: { type: [Number]}
 });
 
 JobPostingSchema.index({ loc : '2dsphere' });
