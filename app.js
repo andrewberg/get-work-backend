@@ -25,7 +25,20 @@ var JobPosting = require('./models/jobposting');
 app.listen(3000);
 console.log("Server started.");
 
-mongoose.connect('mongodb://localhost/getwork');
+var conn = mongoose.createConnection('mongodb://localhost/getwork');
+
+/*conn.db.getCollectionNames().forEach(function(collection) {
+   indexes = db[collection].getIndexes();
+   print("Indexes for " + collection + ":");
+   printjson(indexes);
+});*/
+
+conn.on('open', function () {
+    conn.db.listCollections().toArray(function (err, names) {
+        console.log(err, names);
+        conn.close();
+    });
+});
 
 router.route('/joboffers').post(function(req, res) {
 	var job = new JobPosting();
