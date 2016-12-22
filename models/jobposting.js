@@ -9,6 +9,7 @@ var JobPostingSchema = new Schema({
 	JobPay: String,
 	JobBossID: Number,
 	JobFilled: Boolean,
+	JobID: Number,
 	loc: { type: [Number]}
 });
 

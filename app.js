@@ -41,6 +41,7 @@ router.route('/joboffers').post(function(req, res) {
 	job.JobExpireDate = new Date(expiretime);
 	job.JobPay = req.body.pay;
 	job.JobBossID = req.body.jobbossid;
+	job.JobID = req.body.jobis;
 
 	job.save(function(err) {
 		if (err)
